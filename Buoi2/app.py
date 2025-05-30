@@ -78,5 +78,32 @@ def railfence_decrypt():
     decrypted_text = railfence_cipher.rail_fence_decrypt(cipher_text, key)
     return render_template('railfence.html', decrypted_text=decrypted_text)
 
+@app.route("/playfair")
+def playfair():
+    return render_template('playfair.html')
+
+@app.route("/playfair/creatematrix", methods=['POST'])
+def playfair_creatematrix():
+    key_for_matrix = request.form['inputMatrixKey']
+    playfair_matrix = playfair_cipher.create_playfair_matrix(key_for_matrix)
+    return render_template('playfair.html', playfair_matrix=playfair_matrix)
+
+@app.route("/playfair/encrypt", methods=['POST'])
+def playfair_encrypt():
+    plain_text = request.form['inputPlainText']
+    key = request.form['inputKeyPlain']
+    playfair_matrix = playfair_cipher.create_playfair_matrix(key)
+    encrypted_text = playfair_cipher.playfair_encrypt(plain_text, playfair_matrix)
+    return render_template('playfair.html', encrypted_text=encrypted_text)
+
+@app.route("/playfair/decrypt", methods=['POST'])
+def playfair_decrypt():
+    cipher_text = request.form['inputCipherText']
+    key = request.form['inputKeyCipher']
+    playfair_matrix = playfair_cipher.create_playfair_matrix(key)
+    decrypted_text = playfair_cipher.playfair_decrypt(cipher_text, playfair_matrix)
+    return render_template('playfair.html', decrypted_text=decrypted_text)
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5050, debug=True)
