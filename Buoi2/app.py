@@ -104,6 +104,27 @@ def playfair_decrypt():
     decrypted_text = playfair_cipher.playfair_decrypt(cipher_text, playfair_matrix)
     return render_template('playfair.html', decrypted_text=decrypted_text)
 
+@app.route("/transposition")
+def transposition():
+    return render_template('transposition.html')
+
+@app.route("/transposition/encrypt", methods=['POST'])
+def transposition_encrypt():
+    plain_text = request.form['inputPlainText']
+    key = int(request.form['inputKeyPlain']) # Chuyển key sang số nguyên
+    
+    encrypted_text = transposition_cipher.encrypt(plain_text, key)
+    
+    return render_template('transposition.html', encrypted_text=encrypted_text)
+
+@app.route("/transposition/decrypt", methods=['POST'])
+def transposition_decrypt():
+    cipher_text = request.form['inputCipherText']
+    key = int(request.form['inputKeyCipher']) # Chuyển key sang số nguyên
+    
+    decrypted_text = transposition_cipher.decrypt(cipher_text, key)
+    
+    return render_template('transposition.html', decrypted_text=decrypted_text)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5050, debug=True)
