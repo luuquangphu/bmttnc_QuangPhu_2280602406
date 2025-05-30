@@ -32,7 +32,7 @@ def caesar_encrypt():
 @app.route("/caesar/decrypt", methods=['POST'])
 def caesar_decrypt():
     cipher_text = request.form['inputCipherText']
-    key = int(request.form['inputKeyPlain'])
+    key = int(request.form['inputKeyCipher'])
     
     decrypted_text = caesar_cipher.decrypt_text(cipher_text, key)
     return render_template('caesar.html', decrypted_text=decrypted_text)

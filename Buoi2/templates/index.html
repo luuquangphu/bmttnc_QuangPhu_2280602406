@@ -1,24 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Thực hành An toàn thông tin nâng cao</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/
-    bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        /* Tùy chỉnh nhỏ để căn giữa navbar nếu cần */
+        .navbar-nav {
+            margin: 0 auto; /* Căn giữa các mục nav */
+            display: flex;
+            justify-content: center;
+            width: 100%; /* Đảm bảo chiếm đủ chiều rộng để căn giữa */
+        }
+        .navbar-brand img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 30%;
+            max-width: 200px; /* Giới hạn kích thước logo */
+            height: auto;
+        }
+        .container {
+            padding-top: 20px; /* Thêm khoảng cách trên cùng */
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
-        <img src="https://file1.hutech.edu.vn/file/editor/homepage/stories/
-        hinh34/logo%20CMYK-01.png" alt="hutech" style="display: block;
-        margin-left: auto; margin-right: auto; width: 30%;">
-        <h4 style="font-weight: bold; text-align: center;">BÀI THỰC HÀNH
-        BẢO MẬT THÔNG TIN NÂNG CAO</h4>
-        <ul style="margin-top: 30px;">
-            <li><a href="/caesar">Caesar Cipher</a></li>
-            <li><a href="/vigenere">Vigenere Cipher</a></li>
-            <li><a href="/railfence">RailFence Cipher</a></li>
-            <li><a href="/playfair">PlayFair Cipher</a></li>
-            <li><a href="/transposition">Transposition Cipher</a></li>
-        </ul>
+        <div class="text-center mb-4">
+            <img src="https://file1.hutech.edu.vn/file/editor/homepage/stories/hinh34/logo%20CMYK-01.png" alt="hutech" class="img-fluid" style="max-width: 30%; height: auto;">
+            <h4 class="font-weight-bold mt-3">BÀI THỰC HÀNH BẢO MẬT THÔNG TIN NÂNG CAO</h4>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light rounded shadow-sm">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/caesar">Caesar Cipher</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/vigenere">Vigenere Cipher</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/railfence">RailFence Cipher</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/playfair">PlayFair Cipher</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/transposition">Transposition Cipher</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
