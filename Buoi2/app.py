@@ -58,7 +58,25 @@ def vigenere_decrypt():
     decrypted_text = vigenere_cipher.vigenere_decrypt(cipher_text, key)
     return render_template('vigenere.html', decrypted_text=decrypted_text)
 
+@app.route("/railfence")
+def railfence():
+    return render_template('railfence.html')
 
+@app.route("/railfence/encrypt", methods=['POST'])
+def railfence_encrypt():
+    plain_text = request.form['inputPlainText']
+    key = int(request.form['inputKeyPlain']) 
+    
+    encrypted_text = railfence_cipher.rail_fence_encrypt(plain_text, key)
+    return render_template('railfence.html', encrypted_text=encrypted_text)
+
+@app.route("/railfence/decrypt", methods=['POST']) # Đã đổi route
+def railfence_decrypt():
+    cipher_text = request.form['inputCipherText']
+    key = int(request.form['inputKeyCipher'])
+    
+    decrypted_text = railfence_cipher.rail_fence_decrypt(cipher_text, key)
+    return render_template('railfence.html', decrypted_text=decrypted_text)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5050, debug=True)
