@@ -28,6 +28,7 @@ class MyApp(QMainWindow):
                 print("Error while calling API")
         except requests.exceptions.RequestException as e:
             print("Error: %s" % e)
+            
     def call_api_encrypt(self):
         url = "http://127.0.0.1:5000/api/rsa/encrypt"
         payload = {
